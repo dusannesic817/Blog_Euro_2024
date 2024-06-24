@@ -171,3 +171,6 @@ footer {
 .image-zoom:hover img {
     transform: scale(1.1); 
 }
+.table tbody tr:first-child td {
+    border-top: none;
+  }
