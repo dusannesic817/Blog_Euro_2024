@@ -1,14 +1,24 @@
 <?php
 require_once 'inc/header.php';
 require_once 'app/classes/Home.php';
+require_once 'app/api/ApiGroup.php';
+require_once 'app/classes/ApiGroup.php';
 
 $home = new Home();
+$api = new ApiGroup();
+
+
 
 $page = isset($_GET['page']) ? $_GET['page'] : 1; 
 $perPage = 4; 
 
 
 $index = $home->index($page, $perPage);
+
+
+$groups= $api->index();
+
+
 
 ?>
 <?php if(isset($_SESSION['success_reg']) || isset($_SESSION['login_success']) || isset($_SESSION['success_delete'])): ?>
@@ -24,6 +34,8 @@ $index = $home->index($page, $perPage);
     echo $_SESSION['success_delete'];
     unset($_SESSION['success_delete']);
   }
+
+
   ?>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
@@ -70,107 +82,61 @@ $index = $home->index($page, $perPage);
         </div>
     </div>
 </div>
-<div class="container-fluid mt-5" style="background-color:#f1f3f8;">
-    <div class="container pt-5">
-        <div class="row">
-        <div class="col-md-12" style="margin-top:2rem;">
-                <h3 class="mb-5 ml-2">Groups</h3>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="card">
-                    <div class="card-body">
-                    <h5 class="mb-3">Group A</h5>
-                        <table class="table" style="margin-bottom: -10px;">
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Germany</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>3</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Scotland</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>2</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Swiss</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                    <td>2</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Hungary</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="mb-3">Group A</h5>
-                        <table class="table" style="margin-bottom: -10px;">
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Germany</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>3</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Scotland</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>2</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Swiss</td>
-                                    <td>5</td>
-                                    <td>2</td>
-                                    <td>2</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Hungary</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="card">
-                    <div class="card-body">
-                        This is some text within a card body.
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        This is some text within a card body.
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">1</div>
-            <div class="col-md-4">1</div>
 
+    <div class="container-fluid mt-5" style="background-color:#f1f3f8;">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-md-12" style="margin-top:2rem;">
+                    <h3 class="mb-5 ml-2">Groups</h3>
+                </div>
+                    <?php
+                                
+                        function sortByName($a, $b) {
+                            return strcmp($a['name'], $b['name']);
+                        }
+                                
+                            usort($groups, 'sortByName');
+
+                        foreach ($groups as $value) {
+                            $name_group = strtoupper($value['name']); 
+
+                            $teams = $value['teams'];
+
+                            usort($teams, function($a, $b) {
+                                return $b['points'] - $a['points'];
+                            });
+                    ?>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 d-flex flex-column">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="mb-3">Group <?php echo $name_group ?></h5>
+                            <table class="table">
+                                <tbody>
+                                    <?php foreach ($teams as $team) {
+                                        $team_name= $team['team'];
+                                        $team_names=ucfirst($team_name['name']);
+
+                                    
+                                        $team_img =$team['team'];
+                                        $temas_img= $team_img['imageUrl'];
+
+                              
+                                    ?>
+                                    <tr>
+                                        <td style="width: 40px;"><img src="<?php echo $temas_img; ?>" alt=""
+                                                style="max-width: 100%; height: auto;"></td>
+                                        <td><?php echo $team_names ?></td>
+                                        <td><?php echo $team['matchesPlayed']?></td>
+                                        <td><?php echo $team['goalDifference']?></td>
+                                        <td style="font-weight: bold;"><?php echo $team['points']?></td>
+                                    </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+            </div>
+                <?php } ?>
         </div>
     </div>
     <div class="container">

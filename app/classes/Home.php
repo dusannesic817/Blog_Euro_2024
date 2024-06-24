@@ -3,7 +3,6 @@
 
 class Home{
 
-
     protected $connection;
 
     public function __construct(){
