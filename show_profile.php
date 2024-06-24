@@ -12,11 +12,16 @@ require_once 'app/classes/Post.php';
     if(isset($_GET['id'])){
         $id=$_GET['id'];
 
+        $_SESSION['user_id_page']=$id;
+
        $show=$user->show($id);
 
     }
 
-    $posts=$post->fetch_user_posts($id);
+    $page = isset($_GET['page']) ? $_GET['page'] : 1; 
+    $perPage = 4; 
+
+    $posts=$post->fetch_user_posts($id,$page,$perPage);
 
    
 
@@ -73,7 +78,7 @@ require_once 'app/classes/Post.php';
                 <h4>Posts By <?php echo $show['first_name']." ". $show['last_name'] ?></h4>
             </div>
         </div>
-        <div class="row mt-5 justify-content-center">
+        <div class="row mt-5 justify-content-center" id="cardsProfile">
             <?php
                 foreach($posts as $value){
                     $time=strtotime($value['created_at']);
@@ -106,9 +111,50 @@ require_once 'app/classes/Post.php';
                 </div>
             </div>
               <?php }?>
-        </div>      
+        </div> 
+        <div class="row mt-3 mb-5">
+    <div class="col-md-12 text-center">
+      <button id="loadMoreButton" class="btn btn-link" style="text-decoration: none;"><h5>Load More</h5></button>
     </div>
+  </div>     
+    </div>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+  var currentPage = <?php echo $page; ?>; 
+  var perPage = <?php echo $perPage; ?>; 
+  var loading = false; 
+ 
+  function loadMoreCards() {
+    if (loading) return; 
 
+    loading = true; 
+
+    var xhr = new XMLHttpRequest();
+    var url = 'load_more_show_profile.php?page=' + (currentPage + 1) + '&perPage=' + perPage; 
+    xhr.open('GET', url, true);
+
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        var newCards = xhr.responseText;      
+        var cardsProfile = document.getElementById('cardsProfile');
+    
+        cardsProfile.insertAdjacentHTML('beforeend', newCards);       
+        currentPage++;
+
+        loading = false; 
+      } 
+    };
+
+    xhr.send();
+  }
+  
+  var loadMoreButton = document.getElementById('loadMoreButton');
+  loadMoreButton.addEventListener('click', function() {
+    loadMoreCards();
+  });
+});
+</script>
+ 
 <?php
 require_once 'inc/footer.php';
 ?>

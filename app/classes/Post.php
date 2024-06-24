@@ -65,7 +65,8 @@ class Post{
     }
 
 
-    public function fetch_user_posts($id){
+    public function fetch_user_posts($id,$page = 1, $perPage = 6){
+        $offset = ($page - 1) * $perPage;
         $sql='SELECT 
                 posts.id,
                 posts.user_id as user_id,
@@ -85,12 +86,12 @@ class Post{
                 ratings ON posts.id = ratings.post_id
             WHERE 
                 posts.user_id = ?
-            GROUP BY
+           GROUP BY
                 posts.id
-            ';
+            LIMIT ?, ?';
 
         $stmt = $this->connection->getConnection()->prepare($sql);
-        $stmt->bind_param('i', $id);
+        $stmt->bind_param('iii', $id,$offset, $perPage);
         $stmt->execute();
 
         $result = $stmt->get_result();

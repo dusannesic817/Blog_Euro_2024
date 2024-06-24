@@ -50,7 +50,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row pb-4">
       <div class="col-md-8">
         <div class="d-flex flex-column">
           <div class="p-2"><small>Price is in US dollars and excludes tax and handling fees.</small></div>

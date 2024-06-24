@@ -156,3 +156,18 @@ footer {
     background-color: red; 
     color: white; 
 }
+
+.image-zoom {
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-zoom img {
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.image-zoom:hover img {
+    transform: scale(1.1); 
+}

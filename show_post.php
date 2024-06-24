@@ -61,7 +61,7 @@ require_once 'app/classes/Rating.php';
     $count=$comment->count($post_id);
 
 
-    $ratings=$rating->check($_SESSION['id'],$post_id);
+   // $ratings=$rating->check($_SESSION['id'],$post_id);
 
 
 

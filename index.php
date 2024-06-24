@@ -78,25 +78,25 @@ $index = $home->index($page, $perPage);
             </div>
             <div class="col-md-12 d-flex">
                     <div class="card mr-3" style="width: 20rem;">
-                        <img src="public/images/cities/berlin.png" class="card-img-top img-fluid" alt="...">
+                        <a href="https://www.uefa.com/euro2024/event-guide/berlin/" target="blank" class="image-zoom"><img src="public/images/cities/berlin.png" class="card-img-top img-fluid" alt="..."></a>
                     </div>
                 
                     <div class="card mr-3" style="width: 20rem;">
-                        <img src="public/images/cities/cologne.png" class="card-img-top img-fluid" alt="...">
+                        <a href="https://www.uefa.com/euro2024/event-guide/cologne/" target="blank" class="image-zoom"><img src="public/images/cities/cologne.png" class="card-img-top img-fluid" alt="..."></a>
                     </div>
                 <div class="card mr-3" style="width: 20rem;">
                     
-                        <img src="public/images/cities/dusseldorf.png" class="card-img-top img-fluid" alt="...">
+                        <a  href="https://www.uefa.com/euro2024/event-guide/dusseldorf/" target="blank" class="image-zoom"><img src="public/images/cities/dusseldorf.png" class="card-img-top img-fluid" alt="..."></a>
                    
                 </div>
                 <div class="card mr-3" style="width: 20rem;">
                     
-                        <img src="public/images/cities/dortmund.png" class="card-img-top img-fluid" alt="...">
+                        <a href="https://www.uefa.com/euro2024/event-guide/dortmund/" target="blank" class="image-zoom"><img src="public/images/cities/dortmund.png" class="card-img-top img-fluid" alt="..."></a>
                    
                 </div>
                 <div class="card mr-3" style="width:20rem;">
                     
-                        <img src="public/images/cities/frankfurt.png" class="card-img-top img-fluid" alt="...">
+                        <a href="https://www.uefa.com/euro2024/event-guide/frankfurt/" target="blank" class="image-zoom"><img src="public/images/cities/frankfurt.png" class="card-img-top img-fluid" alt="..."></a>
                     
                 </div>
                 
@@ -105,25 +105,25 @@ $index = $home->index($page, $perPage);
         <div class="row  mt-3" style="padding-bottom:85px">
             <div class="col-md-12 d-flex">
                     <div class="card mr-3" style="width: 20rem;">
-                        <img src="public/images/cities/gelsenkirchen.png" class="card-img-top img-fluid" alt="...">
+                        <a  href="https://www.uefa.com/euro2024/event-guide/gelsenkirchen/" target="blank" class="image-zoom"><img src="public/images/cities/gelsenkirchen.png" class="card-img-top img-fluid" alt="..."></a>
                     </div>
                 
                 <div class="card mr-3" style="width: 20rem;">
-                    <img src="public/images/cities/hamburg.png" class="card-img-top img-fluid" alt="...">
+                    <a  href="https://www.uefa.com/euro2024/event-guide/hamburg/" target="blank" class="image-zoom"><img src="public/images/cities/hamburg.png" class="card-img-top img-fluid" alt="..."></a>
                 </div>
                 <div class="card mr-3" style="width: 20rem;">
                     
-                        <img src="public/images/cities/leipzig.png" class="card-img-top img-fluid" alt="...">
+                       <a  href="https://www.uefa.com/euro2024/event-guide/leipzig/" target="blank" class="image-zoom"> <img src="public/images/cities/leipzig.png" class="card-img-top img-fluid" alt="..."></a>
                    
                 </div>
                 <div class="card mr-3" style="width: 20rem;">
                     
-                        <img src="public/images/cities/munich.png" class="card-img-top img-fluid" alt="...">
+                        <a  href="https://www.uefa.com/euro2024/event-guide/munich/" target="blank" class="image-zoom"><img src="public/images/cities/munich.png" class="card-img-top img-fluid" alt="..."></a>
                     
                 </div>
                 <div class="card mr-3" style="width:20rem;">
                     
-                        <img src="public/images/cities/stuttgart.png" class="card-img-top img-fluid" alt="...">
+                        <a  href="https://www.uefa.com/euro2024/event-guide/stuttgart/" target="blank" class="image-zoom"><img src="public/images/cities/stuttgart.png" class="card-img-top img-fluid" alt="..."></a>
                     
                 </div>
                 
