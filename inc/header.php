@@ -21,7 +21,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light ">
     <a class="navbar-brand" href="index.php">
-        <img src="public/images/logo_euro_nav.png" width="260" height="90" class="d-inline-block align-top" alt="">
+        <img src="public/images/logo_euro_nav.png" width="260" height="75" class="d-inline-block align-top" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -39,6 +39,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="https://eurogermanytickets.com/all-matches-euro-2024-tickets?gad_source=1&gclid=Cj0KCQjwvb-zBhCmARIsAAfUI2vjgYfy5znBKd_TmBIGWsj63UafWHgTPvdKM3ISWEhciOwPW-bSIioaAnNLEALw_wcB" target="blank" style="color:white;">Tickets</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.uefa.com/euro2024/news/" target="blank" style="color:white;">News</a>
             </li>
         </ul>     
         <ul class="navbar-nav">

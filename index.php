@@ -106,7 +106,7 @@ $groups= $api->index();
                                 return $b['points'] - $a['points'];
                             });
                     ?>
-                <div class="col-md-4 mb-3">
+                <div class="col-lg-4 col-md-6 mb-3">
                     <div class="card h-100 d-flex flex-column">
                         <div class="card-body d-flex flex-column">
                             <h5 class="mb-3">Group <?php echo $name_group ?></h5>
