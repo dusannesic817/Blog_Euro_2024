@@ -4,4 +4,4 @@ users can share their photos and experiences from the championship, as well as c
 Visitors to the application can view posts and leave comments.
 
 -Tools: 
-PHP OOP, MySQL, HTML5, Bootstrap 4, CSS, JS, JQuery, API Euro 2024.
+PHP OOP, MySQL, HTML5, Bootstrap 4, CSS, JS, JQuery3, API Euro 2024.
